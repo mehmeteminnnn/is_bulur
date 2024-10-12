@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart'; // Firebase Auth paketi
 import 'package:isci/firebase_options.dart';
 import 'package:isci/giris_ekrani.dart';
+import 'package:isci/isci_paneli.dart';
 import 'giris_yap.dart'; // Giriş Yap Sayfası
 
 void main() async {
@@ -38,7 +39,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: _user != null
-          ? LoginPage()
+          ? GetStartedPage()
           : WelcomePage(), // Kullanıcı varsa ana sayfaya yönlendir
     );
   }
@@ -85,7 +86,7 @@ class WelcomePage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          RegisterPage()), // Kullanıcıyı giriş sayfasına yönlendir
+                          GetStartedPage()), // Kullanıcıyı giriş sayfasına yönlendir
                 );
               },
               child: Text('Atla'),

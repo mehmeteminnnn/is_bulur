@@ -1,20 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:isci/isci_sifre_degistirme.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: AccountSettingsPage(),
-    );
-  }
-}
-
 class AccountSettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -25,7 +11,7 @@ class AccountSettingsPage extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          // Arka plan için gradient ekledik
+          // Arka plan için gradient
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -35,6 +21,7 @@ class AccountSettingsPage extends StatelessWidget {
               ),
             ),
           ),
+          // İçerik
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -69,31 +56,7 @@ class AccountSettingsPage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.green.shade600,
-        unselectedItemColor: Colors.grey,
-        currentIndex: 3, // Ayarlar sekmesi seçili
-        showUnselectedLabels: true,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.article_outlined),
-            label: 'İlanlar',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.map_outlined),
-            label: 'Alanı Gör',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list_alt),
-            label: 'Taleplerim',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Ayarlar',
-          ),
-        ],
-      ),
+      // bottomNavigationBar'ı buradan kaldırıyoruz
     );
   }
 }

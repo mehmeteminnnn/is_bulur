@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:isci/giris_yap.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -166,6 +166,8 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             TextButton(
               onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginPage()));
                 // Giriş Yap butonuna basılınca yapılacaklar
               },
               child: Text('Giriş Yap'),

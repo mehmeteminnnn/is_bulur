@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:isci/giris_ekrani.dart';
+import 'package:isci/secim_ekrani.dart';
 
 void main() {
   runApp(MyApp());
@@ -69,8 +71,13 @@ class LoginPage extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // İleri butonuna basıldığında yapılacaklar
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => RoleSelectionPage()));
               },
+              // İleri butonuna basıldığında yapılacaklar
+
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
@@ -94,8 +101,13 @@ class LoginPage extends StatelessWidget {
                 SizedBox(width: 10),
                 TextButton(
                   onPressed: () {
-                    // Kayıt Ol butonuna basıldığında yapılacaklar
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RegisterPage()));
                   },
+                  // Kayıt Ol butonuna basıldığında yapılacaklar
+
                   style: TextButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       side: BorderSide(color: Colors.white),

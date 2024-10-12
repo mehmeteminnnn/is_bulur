@@ -1,20 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SettingsPage(),
-    );
-  }
-}
-
 class SettingsPage extends StatefulWidget {
   @override
   _SettingsPageState createState() => _SettingsPageState();
@@ -38,29 +24,6 @@ class _SettingsPageState extends State<SettingsPage> {
           style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
         leading: Icon(Icons.menu),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.description),
-            label: 'İlanlar',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.map),
-            label: 'Alanı Gör',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.assignment),
-            label: 'Taleplerim',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Ayarlar',
-          ),
-        ],
-        currentIndex: 3,
-        selectedItemColor: Colors.green,
-        unselectedItemColor: Colors.grey,
       ),
       body: SingleChildScrollView(
         child: Column(

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:isci/ilanlar.dart';
+import 'package:isci/ilanlarim.dart';
+import 'package:isci/navbarlar/isci_navbar.dart';
 
 void main() {
   runApp(MyApp());
@@ -70,8 +73,11 @@ class RoleSelectionPage extends StatelessWidget {
                 // İşçi Olarak Devam Et Kartı
                 GestureDetector(
                   onTap: () {
-                    // İşçi olarak devam et'e basıldığında yapılacaklar
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => WorkerNavBar()));
                   },
+                  // İşçi olarak devam et'e basıldığında yapılacaklar
+
                   child: SizedBox(
                     width: 300, // Sabit genişlik
                     height: 200, // Sabit yükseklik

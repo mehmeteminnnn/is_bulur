@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:isci/giris_ekrani.dart';
+import 'package:isci/giris_yap.dart';
 
 void main() {
   runApp(MyApp());
@@ -49,6 +51,12 @@ class GetStartedPage extends StatelessWidget {
                   SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
+                      {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginPage()));
+                      }
                       // Giriş Yap butonuna tıklanınca yapılacak işlemler
                     },
                     child: Text('Giriş Yap'),
@@ -67,8 +75,13 @@ class GetStartedPage extends StatelessWidget {
                   SizedBox(height: 10), // Butonlar arasında boşluk
                   TextButton(
                     onPressed: () {
-                      // Kayıt Ol butonuna tıklanınca yapılacak işlemler
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RegisterPage()));
                     },
+                    // Kayıt Ol butonuna tıklanınca yapılacak işlemler
+
                     child: Text('Hesabınız yok mu? Kayıt ol'),
                     style: TextButton.styleFrom(
                       foregroundColor: Colors.white, // Beyaz metin
