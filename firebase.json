@@ -1,6 +1,1 @@
-{
-  "firestore": {
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
-  }
-}
+{"firestore":{"rules":"firestore.rules","indexes":"firestore.indexes.json"},"flutter":{"platforms":{"android":{"default":{"projectId":"is-bulur","appId":"1:332479069578:android:26b88f6f8ff4301da41c73","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"is-bulur","configurations":{"android":"1:332479069578:android:26b88f6f8ff4301da41c73","ios":"1:332479069578:ios:877ee45e45268172a41c73","web":"1:332479069578:web:6a495a2e12820617a41c73"}}}}}}

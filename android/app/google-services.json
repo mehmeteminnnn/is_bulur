@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "332479069578",
+    "project_id": "is-bulur",
+    "storage_bucket": "is-bulur.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332479069578:android:bb7fe1c4028698b7a41c73",
+        "android_client_info": {
+          "package_name": "com.example.isci"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVecbOWIF8bAfMlWB0LmKL2RFZrprgRvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
