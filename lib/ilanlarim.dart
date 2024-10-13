@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:isci/ilan_ver.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
+class MyListingsPage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MyListingsPage(),
-    );
-  }
+  _MyListingsPageState createState() => _MyListingsPageState();
 }
 
-class MyListingsPage extends StatelessWidget {
+class _MyListingsPageState extends State<MyListingsPage> {
   final List<Listing> listings = [
     Listing(
       company: 'GÜRSEL İNŞAAT',
@@ -25,14 +17,37 @@ class MyListingsPage extends StatelessWidget {
       description: 'İlan Detayı İlan Detayı İlan Detayı İlan Detayı...',
     ),
     Listing(
-      company: 'GÜRSEL İNŞAAT',
-      title: 'Acil PVC Doğrama için Akşam...',
-      date: '18.08.2024',
-      location: 'İstanbul - Küçükçekmece',
-      priceRange: '7.000 TL - 10.000 TL',
-      description: 'İlan Detayı İlan Detayı İlan Detayı İlan Detayı...',
+      company: 'KÜÇÜK İNŞAAT',
+      title: 'Yazlık Kiralık Daire...',
+      date: '20.08.2024',
+      location: 'İzmir - Çeşme',
+      priceRange: '3.000 TL - 5.000 TL',
+      description: 'Deniz manzaralı, havuzlu...',
     ),
   ];
+
+  List<Listing> filteredListings = [];
+  String searchQuery = '';
+
+  @override
+  void initState() {
+    super.initState();
+    filteredListings = listings; // Başlangıçta tüm ilanları göster
+  }
+
+  void _filterListings(String query) {
+    if (query.isEmpty) {
+      filteredListings = listings; // Arama çubuğu boşsa tüm ilanları göster
+    } else {
+      filteredListings = listings.where((listing) {
+        return listing.title.toLowerCase().contains(query.toLowerCase()) ||
+            listing.company.toLowerCase().contains(query.toLowerCase());
+      }).toList();
+    }
+    setState(() {
+      searchQuery = query;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +65,7 @@ class MyListingsPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextField(
+                    onChanged: _filterListings,
                     decoration: InputDecoration(
                       hintText: 'Arama',
                       prefixIcon: Icon(Icons.search),
@@ -62,10 +78,20 @@ class MyListingsPage extends StatelessWidget {
                 SizedBox(width: 10),
                 ElevatedButton.icon(
                   onPressed: () {
-                    // İlan Ver Butonuna tıklama işlemi
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => IlanVerPage()));
                   },
-                  icon: Icon(Icons.add),
-                  label: Text('İlan Ver'),
+                  // İlan Ver Butonuna tıklama işlemi
+                  // İlan verme sayfasına yönlendirme yapılabilir
+
+                  icon: Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
+                  label: Text(
+                    'İlan Ver',
+                    style: TextStyle(color: Colors.white),
+                  ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green.shade400,
                     shape: RoundedRectangleBorder(
@@ -79,7 +105,7 @@ class MyListingsPage extends StatelessWidget {
             // İlan Kartları Listesi
             Expanded(
               child: ListView.builder(
-                itemCount: listings.length,
+                itemCount: filteredListings.length,
                 itemBuilder: (context, index) {
                   return Card(
                     elevation: 3,
@@ -113,7 +139,7 @@ class MyListingsPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  listings[index].company,
+                                  filteredListings[index].company,
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
@@ -122,7 +148,7 @@ class MyListingsPage extends StatelessWidget {
                                 ),
                                 SizedBox(height: 5),
                                 Text(
-                                  listings[index].title,
+                                  filteredListings[index].title,
                                   style: TextStyle(
                                     fontSize: 14,
                                     color: Colors.black87,
@@ -131,7 +157,7 @@ class MyListingsPage extends StatelessWidget {
                                 ),
                                 SizedBox(height: 5),
                                 Text(
-                                  listings[index].date,
+                                  filteredListings[index].date,
                                   style: TextStyle(
                                     fontSize: 14,
                                     color: Colors.red,
@@ -140,7 +166,7 @@ class MyListingsPage extends StatelessWidget {
                                 ),
                                 SizedBox(height: 5),
                                 Text(
-                                  listings[index].description,
+                                  filteredListings[index].description,
                                   style: TextStyle(
                                     fontSize: 12,
                                     color: Colors.black54,
@@ -155,7 +181,7 @@ class MyListingsPage extends StatelessWidget {
                                     SizedBox(width: 5),
                                     Expanded(
                                       child: Text(
-                                        listings[index].location,
+                                        filteredListings[index].location,
                                         style: TextStyle(
                                             fontSize: 12, color: Colors.grey),
                                         overflow: TextOverflow.ellipsis,
@@ -170,7 +196,7 @@ class MyListingsPage extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(left: 10.0),
                             child: Text(
-                              listings[index].priceRange,
+                              filteredListings[index].priceRange,
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Colors.blue.shade700,
@@ -188,31 +214,6 @@ class MyListingsPage extends StatelessWidget {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.green.shade600,
-        unselectedItemColor: Colors.grey,
-        currentIndex: 0, // İlanlarım sekmesi seçili
-        showUnselectedLabels: true,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.article_outlined),
-            label: 'İlanlarım',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.group_outlined),
-            label: 'Başvuranlar',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.message_outlined),
-            label: 'Mesajlar',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings_outlined),
-            label: 'Ayarlar',
-          ),
-        ],
       ),
     );
   }
