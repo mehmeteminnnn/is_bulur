@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
+import 'package:isci/alani_gor.dart';
 import 'package:isci/ilanlar.dart';
-import 'package:isci/isci_ayarlar.dart';
 import 'package:isci/isci_profil.dart';
 
 class WorkerNavBar extends StatefulWidget {
@@ -15,7 +15,7 @@ class _WorkerNavBarState extends State<WorkerNavBar> {
 
   final List<Widget> _pages = [
     IlanlarPage(), // İlanlar sayfası
-    Center(child: Text('Alanı Gör')),
+    AlanGorPage(),
     Center(child: Text('Taleplerim')),
     SettingsPage(), // Ayarlar sayfası
   ];
@@ -35,7 +35,7 @@ class _WorkerNavBarState extends State<WorkerNavBar> {
           CurvedNavigationBarItem(
             child: Icon(Icons.list,
                 size: 35,
-                color: _currentIndex == 0 ? Colors.green : Colors.grey[300]),
+                color: _currentIndex == 0 ? Colors.white : Colors.grey[300]),
             label: 'İlanlar',
             labelStyle: TextStyle(
               fontSize: 14,
@@ -46,7 +46,7 @@ class _WorkerNavBarState extends State<WorkerNavBar> {
           CurvedNavigationBarItem(
             child: Icon(Icons.map,
                 size: 35,
-                color: _currentIndex == 1 ? Colors.green : Colors.grey[300]),
+                color: _currentIndex == 1 ? Colors.white : Colors.grey[300]),
             label: 'Alanı Gör',
             labelStyle: TextStyle(
               fontSize: 14,
@@ -57,7 +57,7 @@ class _WorkerNavBarState extends State<WorkerNavBar> {
           CurvedNavigationBarItem(
             child: Icon(Icons.assignment,
                 size: 35,
-                color: _currentIndex == 2 ? Colors.green : Colors.grey[300]),
+                color: _currentIndex == 2 ? Colors.white : Colors.grey[300]),
             label: 'Taleplerim',
             labelStyle: TextStyle(
               fontSize: 14,
@@ -68,7 +68,7 @@ class _WorkerNavBarState extends State<WorkerNavBar> {
           CurvedNavigationBarItem(
             child: Icon(Icons.settings,
                 size: 35,
-                color: _currentIndex == 3 ? Colors.green : Colors.grey[300]),
+                color: _currentIndex == 3 ? Colors.white : Colors.grey[300]),
             label: 'Ayarlar',
             labelStyle: TextStyle(
               fontSize: 14,

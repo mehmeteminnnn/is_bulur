@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:isci/hizmetler.dart';
+import 'package:isci/isci_ayarlar.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -72,8 +74,19 @@ class _SettingsPageState extends State<SettingsPage> {
                 children: [
                   _buildSettingsOption('Profilim', Icons.person),
                   _buildSettingsOption(
-                      'Hizmetlerim', Icons.miscellaneous_services),
-                  _buildSettingsOption('Hesap Ayarlarım', Icons.settings),
+                      'Hizmetlerim', Icons.miscellaneous_services, () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ServicesPage()),
+                    );
+                  }), // Hizmetlerime tıklanınca yönlendirme yapılıyor
+                  _buildSettingsOption('Hesap Ayarlarım', Icons.settings, () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AccountSettingsPage()),
+                    );
+                  }),
                   _buildSettingsOption('İletişim', Icons.contact_mail),
                   _buildSettingsOption('Hesabımı Sil', Icons.delete),
                   _buildSettingsOption('Çıkış Yap', Icons.logout),
@@ -127,8 +140,9 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  // Function to build a settings option
-  Widget _buildSettingsOption(String title, IconData icon) {
+  // Function to build a settings option with navigation
+  Widget _buildSettingsOption(String title, IconData icon,
+      [VoidCallback? onTap]) {
     return ListTile(
       leading: Icon(icon, color: Colors.grey.shade700),
       title: Text(
@@ -140,9 +154,7 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       trailing:
           Icon(Icons.arrow_forward_ios, color: Colors.grey.shade700, size: 16),
-      onTap: () {
-        // Handle navigation or action
-      },
+      onTap: onTap, // Eğer onTap verilmişse ona yönlendirme yap
     );
   }
 

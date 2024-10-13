@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:isci/navbarlar/isci_navbar.dart';
 
 class IlanlarPage extends StatelessWidget {
   final String location = 'İstanbul - Küçükçekmece';

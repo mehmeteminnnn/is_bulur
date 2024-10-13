@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:isci/ilanlar.dart';
-import 'package:isci/ilanlarim.dart';
 import 'package:isci/navbarlar/isci_navbar.dart';
 
 void main() {

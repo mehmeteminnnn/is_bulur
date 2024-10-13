@@ -42,6 +42,8 @@ dependencies:
   auto_size_text: ^3.0.0
   bottom_navy_bar: ^6.1.0
   curved_labeled_navigation_bar: ^2.0.2
+  flutter_map: ^7.0.2
+  latlong2: ^0.9.1
 
 dev_dependencies:
   flutter_test:
