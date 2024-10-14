@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:isci/giris_yap.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -186,7 +187,8 @@ class _RegisterPageState extends State<RegisterPage> {
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Row(
                 children: [
-                  Icon(Icons.whatshot_sharp, color: Colors.white, size: 30),
+                  Icon(FontAwesomeIcons.whatsapp,
+                      color: Colors.white, size: 30),
                   SizedBox(width: 10),
                   Text(
                     '(###) ### - ## ##',
