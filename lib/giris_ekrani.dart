@@ -67,6 +67,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     SizedBox(height: 16),
                     // E-Posta Adresi TextField
                     TextFormField(
+                      keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         hintText: 'E-Posta Adresi',
                         filled: true,
@@ -80,6 +81,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     SizedBox(height: 16),
                     // Telefon Numarası TextField
                     TextFormField(
+                      keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         hintText: '+90 (###) ### - ## ##',
                         filled: true,
